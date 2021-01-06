@@ -1,0 +1,22 @@
+{
+  "name": "dtil",
+  "version": "1.0.0",
+  "description": "simple date util",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Choi-Jinwoo/Dtil.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Choi-Jinwoo/Dtil/issues"
+  },
+  "homepage": "https://github.com/Choi-Jinwoo/Dtil#readme"
+}
