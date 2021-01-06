@@ -105,6 +105,4 @@ class Dtil {
   }
 }
 
-export default (date?: string | Date | number) => {
-  return new Dtil(date);
-}
+export = (date?: string | Date | number): Dtil => new Dtil(date);
