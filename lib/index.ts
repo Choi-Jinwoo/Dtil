@@ -81,12 +81,12 @@ class Dtil {
     const targetStr = target.toString();
 
     const zeroCount = len - targetStr.length;
-    const zeros = '';
+    const zeroList = [];
     for (let i = 0; i < zeroCount; i += 1) {
-      zeros.concat('0');
+      zeroList.push('0');
     }
 
-    return `${zeros}${targetStr}`;
+    return `${zeroList.join()}${targetStr}`;
   }
 
   /**
