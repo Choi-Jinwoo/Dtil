@@ -3,7 +3,7 @@ import { InvalidDateError } from "./error";
 /**
  * @description Simple Date Util
  */
-export class Dtil {
+class Dtil {
   private readonly _date: Date;
 
   get date(): Date {
@@ -103,4 +103,8 @@ export class Dtil {
 
     return hour;
   }
+}
+
+export default (date?: string | Date | number) => {
+  return new Dtil(date);
 }
