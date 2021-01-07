@@ -73,6 +73,70 @@ class Dtil {
   }
 
   /**
+ * @description check date after target
+ */
+  public isAfter = (target: Date): boolean => {
+    const dateTime = this.date.getTime();
+    const targetTime = target.getTime();
+
+    if (dateTime > targetTime) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * @description check date after now
+   */
+  public isAfterNow = (): boolean => {
+    return this.isAfter(new Date());
+  }
+
+  /**
+   * @description check date before target
+   */
+  public isBefore = (target: Date): boolean => {
+    const dateTime = this.date.getTime();
+    const targetTime = target.getTime();
+
+    if (dateTime < targetTime) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * @description check date before now
+   */
+  public isBeforeNow = (): boolean => {
+    return this.isBefore(new Date());
+  }
+
+
+  /**
+   * @description check date and target same date
+   */
+  public isSameDate = (target: Date) => {
+    const dateYear = this.date.getFullYear();
+    const dateMonth = this.date.getMonth();
+    const dateDate = this.date.getDate();
+
+    const targetYear = target.getFullYear();
+    const targetMonth = target.getMonth();
+    const targetDate = target.getDate();
+
+    if (dateYear === targetYear
+      && dateMonth === targetMonth
+      && dateDate === targetDate) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
    * 
    * @param target zeroFill target
    * @param len total length with zero
