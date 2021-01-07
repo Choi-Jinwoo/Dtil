@@ -1,3 +1,10 @@
+# Dtil
+
+npm package simple date util
+
+![](https://img.shields.io/npm/v/dtil.svg)
+![](https://img.shields.io/npm/dm/dtil.svg)
+
 # Installing
 
 Using npm
