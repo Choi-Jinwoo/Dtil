@@ -1,6 +1,6 @@
 {
   "name": "dtil",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "simple date util",
   "main": "dist/index.js",
   "directories": {
@@ -13,7 +13,16 @@
     "type": "git",
     "url": "git+https://github.com/Choi-Jinwoo/Dtil.git"
   },
-  "author": "",
+  "author": {
+    "email": "chlwlsdn0828@gmail.com",
+    "name": "Choi jinwoo(최진우)"
+  },
+  "keywords": [
+    "date",
+    "date format",
+    "date util",
+    "date compare"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Choi-Jinwoo/Dtil/issues"
