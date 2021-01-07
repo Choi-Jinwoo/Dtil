@@ -63,11 +63,11 @@ console.log(date.format('yyyy/MM/dd')); // result: '2020/08/28'
 
 ## Method
 
-|method|description|
-|---|---|
-|format|format date string|
-|isSameDate|check date and param is same date|
-|isAfter|check date is after param|
-|isAfterNow|check date is after now|
-|isBefore|check date is before param|
-|isBeforeNow|check date is before now|
+|method|return type|description|
+|---|---|---|
+|format|string|format date string|
+|isSameDate|boolean|check date and param is same date|
+|isAfter|boolean|check date is after param|
+|isAfterNow|boolean|check date is after now|
+|isBefore|boolean|check date is before param|
+|isBeforeNow|boolean|check date is before now|
