@@ -10,7 +10,7 @@ class Dtil {
     return this._date;
   }
 
-  constructor(date?: string | Date | number) {
+  constructor(date?: string | Date | number, format?: string) {
 
     if (date === undefined) {
       this._date = new Date();
@@ -18,12 +18,215 @@ class Dtil {
     }
 
     if (typeof date === 'string') {
-      const dateTime = Date.parse(date);
-      if (isNaN(dateTime)) {
-        throw new InvalidDateError(`string '${date}'is not date string`);
+      // is format date
+      if (format !== undefined) {
+        let year;
+        let month;
+        let _date;
+        let hour;
+        let minute;
+        let second;
+
+        if (format.indexOf('YYYY') !== -1) {
+          year = Number(date.substr(format.indexOf('YYYY'), 4));
+          if (isNaN(year)) {
+            throw new InvalidDateError(`string ${year} is not number`);
+          }
+        }
+
+        if (format.indexOf('yyyy') !== -1) {
+          if (year === undefined) {
+            year = Number(date.substr(format.indexOf('yyyy'), 4));
+            if (isNaN(year)) {
+              throw new InvalidDateError(`string ${year} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('MM') !== -1) {
+          month = Number(date.substr(format.indexOf('MM'), 2));
+          if (isNaN(month)) {
+            throw new InvalidDateError(`string ${month} is not number`);
+          }
+        }
+
+        if (format.indexOf('M') !== -1) {
+          if (month === undefined) {
+            month = Number(date.substr(format.indexOf('M'), 1));
+            if (isNaN(month)) {
+              throw new InvalidDateError(`string ${month} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('DD') !== -1) {
+          _date = Number(date.substr(format.indexOf('DD'), 2));
+          if (isNaN(_date)) {
+            throw new InvalidDateError(`string ${_date} is not number`);
+          }
+        }
+
+        if (format.indexOf('dd') !== -1) {
+          if (_date === undefined) {
+            _date = Number(date.substr(format.indexOf('dd'), 2));
+            if (isNaN(_date)) {
+              throw new InvalidDateError(`string ${_date} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('D') !== -1) {
+          if (_date === undefined) {
+            _date = Number(date.substr(format.indexOf('D'), 1));
+            if (isNaN(_date)) {
+              throw new InvalidDateError(`string ${_date} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('d') !== -1) {
+          if (_date === undefined) {
+            _date = Number(date.substr(format.indexOf('d'), 1));
+            if (isNaN(_date)) {
+              throw new InvalidDateError(`string ${_date} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('HH') !== -1) {
+          hour = Number(date.substr(format.indexOf('HH'), 2));
+          if (isNaN(hour)) {
+            throw new InvalidDateError(`string ${hour} is not number`);
+          }
+        }
+
+        if (format.indexOf('hh') !== -1) {
+          if (hour === undefined) {
+            hour = Number(date.substr(format.indexOf('hh'), 2));
+            if (isNaN(hour)) {
+              throw new InvalidDateError(`string ${hour} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('H') !== -1) {
+          if (hour === undefined) {
+            hour = Number(date.substr(format.indexOf('H'), 1));
+            if (isNaN(hour)) {
+              throw new InvalidDateError(`string ${hour} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('h') !== -1) {
+          if (hour === undefined) {
+            hour = Number(date.substr(format.indexOf('h'), 1));
+            if (isNaN(hour)) {
+              throw new InvalidDateError(`string ${hour} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('mm') !== -1) {
+          minute = Number(date.substr(format.indexOf('mm'), 2));
+          if (isNaN(minute)) {
+            throw new InvalidDateError(`string ${minute} is not number`);
+          }
+        }
+
+        if (format.indexOf('m') !== -1) {
+          if (minute === undefined) {
+            minute = Number(date.substr(format.indexOf('m'), 1));
+            if (isNaN(minute)) {
+              throw new InvalidDateError(`string ${minute} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('SS') !== -1) {
+          second = Number(date.substr(format.indexOf('SS'), 2));
+          if (isNaN(second)) {
+            throw new InvalidDateError(`string ${second} is not number`);
+          }
+        }
+
+        if (format.indexOf('ss') !== -1) {
+          if (second === undefined) {
+            second = Number(date.substr(format.indexOf('ss'), 2));
+            if (isNaN(second)) {
+              throw new InvalidDateError(`string ${second} is not number`);
+            }
+          }
+        }
+
+        if (format.indexOf('s') !== -1) {
+          if (second === undefined) {
+            second = Number(date.substr(format.indexOf('s'), 1));
+            if (isNaN(second)) {
+              throw new InvalidDateError(`string ${second} is not number`);
+            }
+          }
+        }
+
+        if (second !== undefined && minute === undefined) {
+          throw new InvalidDateError('minute must provide when you format second');
+        }
+
+        if (minute !== undefined && hour === undefined) {
+          throw new InvalidDateError('hour must provide when you format minute');
+        }
+
+        if (hour !== undefined && date === undefined) {
+          throw new InvalidDateError('date must provide when you format hour');
+        }
+
+        if (date !== undefined && month === undefined) {
+          throw new InvalidDateError('month must provide when you format date');
+        }
+
+        if (month !== undefined && year === undefined) {
+          throw new InvalidDateError('year must provide when you format month');
+        }
+
+        if (year === undefined) {
+          throw new InvalidDateError('year must provide when you format string');
+        }
+
+        if (month === undefined) {
+          throw new InvalidDateError('month must provide when you format string');
+        }
+
+        if (_date === undefined) {
+          this._date = new Date(year, month - 1);
+          return;
+        }
+
+        if (hour === undefined) {
+          this._date = new Date(year, month - 1, _date);
+          return;
+        }
+
+        if (minute === undefined) {
+          this._date = new Date(year, month - 1, _date, hour);
+          return;
+        }
+
+        if (second === undefined) {
+          this._date = new Date(year, month - 1, _date, hour, minute);
+          return;
+        }
+
+        this._date = new Date(year, month - 1, _date, hour, minute, second);
+        return;
+      } else {
+        const dateTime = Date.parse(date);
+        if (isNaN(dateTime)) {
+          throw new InvalidDateError(`string '${date}'is not date string`);
+        }
+
+        this._date = new Date(dateTime);
       }
 
-      this._date = new Date(dateTime);
       return;
     }
 
@@ -169,4 +372,4 @@ class Dtil {
   }
 }
 
-export = (date?: string | Date | number): Dtil => new Dtil(date);
+export = (date?: string | Date | number, format?: string): Dtil => new Dtil(date, format);
