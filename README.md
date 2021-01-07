@@ -60,3 +60,14 @@ const dtil = require('dtil');
 const date = dtil('2020-08-28');
 console.log(date.format('yyyy/MM/dd')); // result: '2020/08/28'
 ```
+
+## Method
+
+|method|description|
+|---|---|
+|format|format date string|
+|isSameDate|check date and param is same date|
+|isAfter|check date is after param|
+|isAfterNow|check date is after now|
+|isBefore|check date is before param|
+|isBeforeNow|check date is before now|
